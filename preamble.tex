@@ -1,0 +1,95 @@
+% !TeX spellcheck = ru_RU
+% !TEX root = vkr.tex
+% Опциональные добавления используемых пакетов. Вполне может быть, что они вам не понадобятся, но в шаблоне приведены примеры их использования.
+\usepackage{tikz} % Мощный пакет для создание рисунков, однако может очень сильно замедлять компиляцию
+\usetikzlibrary{decorations.pathreplacing,calc,shapes,positioning,tikzmark}
+
+% Библиотека для TikZ, которая генерирует отдельные файлы для каждого рисунка
+% Позволяет ускорить компиляцию, однако имеет свои ограничения
+% Например, ломает пример выделения кода в листинге из шаблона
+% \usetikzlibrary{external}
+% \tikzexternalize[prefix=figures/]
+
+\newcounter{tmkcount}
+
+\tikzset{
+    use tikzmark/.style={
+            remember picture,
+            overlay,
+            execute at end picture={
+                    \stepcounter{tmkcount}
+                },
+        },
+    tikzmark suffix={-\thetmkcount}
+}
+
+\usepackage{booktabs} % Пакет для верстки "более книжных" таблиц, вполне годится для оформления результатов
+% В шаблоне есть команда \multirowcell, которой нужен этот пакет.
+\usepackage{multirow}
+\usepackage{siunitx} % для таблиц с единицами измерений
+
+% Для названий стоит использовать \textsc{}
+\newcommand{\OCaml}{\textsc{OCaml}}
+\newcommand{\miniKanren}{\textsc{miniKanren}}
+\newcommand{\BibTeX}{\textsc{BibTeX}}
+\newcommand{\vsharp}{\textsc{V$\sharp$}}
+\newcommand{\fsharp}{\textsc{F$\sharp$}}
+\newcommand{\csharp}{\textsc{C\#}}
+\newcommand{\GitHub}{\textsc{GitHub}}
+\newcommand{\SMT}{\textsc{SMT}}
+
+\definecolor{eclipseGreen}{RGB}{63,127,95}
+% \lstdefinelanguage{ocaml}{
+% keywords={@type, function, fun, let, in, match, with, when, class, type,
+% nonrec, object, method, of, rec, repeat, until, while, not, do, done, as, val, inherit, and,
+% new, module, sig, deriving, datatype, struct, if, then, else, open, private, virtual, include, success, failure,
+% lazy, assert, true, false, end},
+% sensitive=true,
+% commentstyle=\small\itshape\ttfamily,
+% keywordstyle=\ttfamily\bfseries, %\underbar,
+% identifierstyle=\ttfamily,
+% basewidth={0.5em,0.5em},
+% columns=fixed,
+% fontadjust=true,
+% literate={->}{{$\to$}}3 {===}{{$\equiv$}}1 {=/=}{{$\not\equiv$}}1 {|>}{{$\triangleright$}}3 {\\/}{{$\vee$}}2 {/\\}{{$\wedge$}}2 {>=}{{$\ge$}}1 {<=}{{$\le$}} 1,
+% morecomment=[s]{(*}{*)}
+% }
+
+\makeatletter
+\@ifclassloaded{beamer}{
+    %%% Обязательные пакеты
+    %% Beamer
+    \usepackage{beamerthemesplit}
+    \usetheme{SPbGU}
+    \beamertemplatenavigationsymbolsempty
+    \usepackage{appendixnumberbeamer}
+
+    %% Локализация
+    \usepackage{fontspec}
+    \setmainfont{CMU Serif}
+    \setsansfont{CMU Sans Serif}
+    \setmonofont{CMU Typewriter Text}
+    %\setmonofont{Fira Code}[Contextuals=Alternate,Scale=0.9]
+    %\setmonofont{Inconsolata}
+    \usepackage{polyglossia}
+    \setmainlanguage{russian}
+    \setotherlanguage{english}
+
+    %% Графика
+    \usepackage{pdfpages} % Позволяет вставлять многостраничные pdf документы в текст
+
+    % Математические окружения с русским названием
+    \newtheorem{rutheorem}{Теорема}
+    \newtheorem{ruproof}{Доказательство}
+    \newtheorem{rudefinition}{Определение}
+    \newtheorem{rulemma}{Лемма}
+    \usepackage{fancyvrb}
+}
+{}
+\makeatother
+
+\usepackage[autostyle]{csquotes} % Правильные кавычки в зависимости от языка
+\usepackage{totcount}
+\usepackage{setspace}
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools} % "Адекватная" работа с математикой в LaTeX
+

@@ -1,0 +1,33 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{@Injectable}\PYG{p}{(\PYGZob{}}
+  \PYG{n+nx}{providedIn}\PYG{o}{:} \PYG{l+s+s1}{\PYGZsq{}root\PYGZsq{}}
+\PYG{p}{\PYGZcb{})}
+\PYG{k}{export} \PYG{k+kd}{class} \PYG{n+nx}{TrapperProfileService} \PYG{p}{\PYGZob{}}
+
+  \PYG{k}{private} \PYG{n+nx}{apiUrl} \PYG{o}{=} \PYG{n+nx}{environment}\PYG{p}{.}\PYG{n+nx}{apiUrl}\PYG{p}{;}
+
+  \PYG{k+kr}{constructor}\PYG{p}{(}\PYG{k}{private} \PYG{n+nx}{http}: \PYG{k+kt}{HttpClient}\PYG{p}{)} \PYG{p}{\PYGZob{}} \PYG{p}{\PYGZcb{}}
+
+  \PYG{n+nx}{getTrappersProfile}\PYG{p}{(}\PYG{n+nx}{filterTags}: \PYG{k+kt}{boolean}\PYG{p}{[])} \PYG{p}{\PYGZob{}}
+    \PYG{k+kd}{const} \PYG{n+nx}{params} \PYG{o}{=} \PYG{o+ow}{new} \PYG{n+nx}{HttpParams}\PYG{p}{()}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n+nx}{filterTags}\PYG{p}{.}\PYG{n+nx}{length} \PYG{o}{!=} \PYG{l+m+mf}{0}\PYG{p}{)\PYGZob{}}
+      \PYG{k+kd}{const} \PYG{n+nx}{params} \PYG{o}{=} \PYG{o+ow}{new} \PYG{n+nx}{HttpParams}\PYG{p}{()}
+          \PYG{p}{.}\PYG{n+nx}{set}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}isCat\PYGZdq{}}\PYG{p}{,} \PYG{n+nx}{filterTags}\PYG{p}{[}\PYG{l+m+mf}{0}\PYG{p}{].}\PYG{n+nx}{toString}\PYG{p}{())}
+          \PYG{p}{.}\PYG{n+nx}{set}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}isDog\PYGZdq{}}\PYG{p}{,} \PYG{n+nx}{filterTags}\PYG{p}{[}\PYG{l+m+mf}{1}\PYG{p}{].}\PYG{n+nx}{toString}\PYG{p}{())}
+          \PYG{p}{.}\PYG{n+nx}{set}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}isCadog\PYGZdq{}}\PYG{p}{,} \PYG{n+nx}{filterTags}\PYG{p}{[}\PYG{l+m+mf}{2}\PYG{p}{].}\PYG{n+nx}{toString}\PYG{p}{())}
+          \PYG{p}{.}\PYG{n+nx}{set}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}isFree\PYGZdq{}}\PYG{p}{,} \PYG{n+nx}{filterTags}\PYG{p}{[}\PYG{l+m+mf}{3}\PYG{p}{].}\PYG{n+nx}{toString}\PYG{p}{())}
+          \PYG{p}{.}\PYG{n+nx}{set}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}isPay\PYGZdq{}}\PYG{p}{,} \PYG{n+nx}{filterTags}\PYG{p}{[}\PYG{l+m+mf}{4}\PYG{p}{].}\PYG{n+nx}{toString}\PYG{p}{())}
+          \PYG{p}{.}\PYG{n+nx}{set}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}isDeal\PYGZdq{}}\PYG{p}{,} \PYG{n+nx}{filterTags}\PYG{p}{[}\PYG{l+m+mf}{5}\PYG{p}{].}\PYG{n+nx}{toString}\PYG{p}{())}
+          \PYG{p}{.}\PYG{n+nx}{set}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}isMetallCatNap\PYGZdq{}}\PYG{p}{,} \PYG{n+nx}{filterTags}\PYG{p}{[}\PYG{l+m+mf}{6}\PYG{p}{].}\PYG{n+nx}{toString}\PYG{p}{())}
+          \PYG{p}{.}\PYG{n+nx}{set}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}isPlasticCatNap\PYGZdq{}}\PYG{p}{,} \PYG{n+nx}{filterTags}\PYG{p}{[}\PYG{l+m+mf}{7}\PYG{p}{].}\PYG{n+nx}{toString}\PYG{p}{())}
+          \PYG{p}{.}\PYG{n+nx}{set}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}isNet\PYGZdq{}}\PYG{p}{,} \PYG{n+nx}{filterTags}\PYG{p}{[}\PYG{l+m+mf}{8}\PYG{p}{].}\PYG{n+nx}{toString}\PYG{p}{())}
+          \PYG{p}{.}\PYG{n+nx}{set}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}isLadder\PYGZdq{}}\PYG{p}{,} \PYG{n+nx}{filterTags}\PYG{p}{[}\PYG{l+m+mf}{9}\PYG{p}{].}\PYG{n+nx}{toString}\PYG{p}{())}
+          \PYG{p}{.}\PYG{n+nx}{set}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}isOther\PYGZdq{}}\PYG{p}{,} \PYG{n+nx}{filterTags}\PYG{p}{[}\PYG{l+m+mf}{10}\PYG{p}{].}\PYG{n+nx}{toString}\PYG{p}{())}
+          \PYG{p}{.}\PYG{n+nx}{set}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}haveCar\PYGZdq{}}\PYG{p}{,} \PYG{n+nx}{filterTags}\PYG{p}{[}\PYG{l+m+mf}{11}\PYG{p}{].}\PYG{n+nx}{toString}\PYG{p}{())}
+          \PYG{p}{.}\PYG{n+nx}{set}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}haventCar\PYGZdq{}}\PYG{p}{,} \PYG{n+nx}{filterTags}\PYG{p}{[}\PYG{l+m+mf}{12}\PYG{p}{].}\PYG{n+nx}{toString}\PYG{p}{())}
+      \PYG{p}{\PYGZcb{}}
+    \PYG{k}{return} \PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{http}\PYG{p}{.}\PYG{n+nx}{get}\PYG{o}{\PYGZlt{}}\PYG{n+nx}{Trapper}\PYG{p}{[]}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{l+s+sb}{`}\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{apiUrl}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{/trappers`}\PYG{p}{,}
+     \PYG{p}{\PYGZob{}}\PYG{n+nx}{params}\PYG{p}{\PYGZcb{})}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

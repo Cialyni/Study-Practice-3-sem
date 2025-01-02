@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{@Injectable}\PYG{p}{(\PYGZob{}}
+  \PYG{n+nx}{providedIn}\PYG{o}{:} \PYG{l+s+s1}{\PYGZsq{}root\PYGZsq{}}
+\PYG{p}{\PYGZcb{})}
+\PYG{k}{export} \PYG{k+kd}{class} \PYG{n+nx}{TrapperService} \PYG{p}{\PYGZob{}}
+  \PYG{n+nx}{trapperProfileService} \PYG{o}{=} \PYG{n+nx}{inject}\PYG{p}{(}\PYG{n+nx}{TrapperProfileService}\PYG{p}{)}
+  \PYG{n+nx}{trappers}: \PYG{k+kt}{Trapper}\PYG{p}{[]} \PYG{o}{=} \PYG{p}{[]}
+  \PYG{k+kr}{constructor}\PYG{p}{()} \PYG{p}{\PYGZob{}}\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{updateTrappersData}\PYG{p}{([])\PYGZcb{}}
+  \PYG{n+nx}{updateTrappersData}\PYG{p}{(}\PYG{n+nx}{filter}: \PYG{k+kt}{boolean}\PYG{p}{[])\PYGZob{}}
+    \PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{trapperProfileService}\PYG{p}{.}\PYG{n+nx}{getTrappersProfile}\PYG{p}{(}\PYG{n+nx}{filter}\PYG{p}{)}
+    \PYG{p}{.}\PYG{n+nx}{subscribe}\PYG{p}{(}\PYG{n+nx}{val} \PYG{p}{=\PYGZgt{}} \PYG{p}{\PYGZob{}}
+      \PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{trappers} \PYG{o}{=} \PYG{n+nx}{val}
+    \PYG{p}{\PYGZcb{})}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

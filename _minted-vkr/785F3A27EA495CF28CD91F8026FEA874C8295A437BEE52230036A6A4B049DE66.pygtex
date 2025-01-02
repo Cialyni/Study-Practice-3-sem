@@ -1,0 +1,19 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+
+\PYG{o}{\PYGZlt{}}\PYG{n+nx}{img} \PYG{k+kd}{class}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}trapper\PYGZus{}type\PYGZdq{}}  \PYG{p}{[}\PYG{n+nx}{src}\PYG{p}{]} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}trapper.animalChoice |}
+\PYG{l+s+s2}{                                    trapperType\PYGZdq{}} \PYG{o}{\PYGZgt{}}
+
+\PYG{k+kd}{@Pipe}\PYG{p}{(\PYGZob{}}
+  \PYG{n+nx}{name}\PYG{o}{:} \PYG{l+s+s1}{\PYGZsq{}trapperType\PYGZsq{}}\PYG{p}{,}
+  \PYG{n+nx}{standalone}: \PYG{k+kt}{true}
+\PYG{p}{\PYGZcb{})}
+\PYG{k}{export} \PYG{k+kd}{class} \PYG{n+nx}{TrapperTypePipe} \PYG{k}{implements} \PYG{n+nx}{PipeTransform} \PYG{p}{\PYGZob{}}
+
+  \PYG{n+nx}{transform}\PYG{p}{(}\PYG{n+nx}{value}: \PYG{k+kt}{string}\PYG{p}{)}\PYG{o}{:} \PYG{k+kt}{string} \PYG{p}{\PYGZob{}}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n+nx}{value} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}cats\PYGZdq{}}\PYG{p}{)} \PYG{k}{return} \PYG{l+s+s2}{\PYGZdq{}../assets/icons/cat.png\PYGZdq{}}
+    \PYG{k}{else} \PYG{k}{if} \PYG{p}{(}\PYG{n+nx}{value} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}dogs\PYGZdq{}}\PYG{p}{)} \PYG{k}{return} \PYG{l+s+s2}{\PYGZdq{}../assets/icons/dog.png\PYGZdq{}}
+    \PYG{k}{else} \PYG{k}{return} \PYG{l+s+s2}{\PYGZdq{}../assets/icons/cadog.png\PYGZdq{}}
+  \PYG{p}{\PYGZcb{}}
+
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

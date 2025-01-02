@@ -1,0 +1,28 @@
+% !TEX TS-program = xelatex
+% !BIB program = bibtex
+% !TeX spellcheck = ru_RU
+
+\documentclass[14pt, russian]{practice-3-sem}
+
+\input{preamble.tex}
+
+\begin{document}
+% TODO: Formatting
+\input{title.tex}
+\maketitle
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+\input{000_intro}
+\input{010_task}
+\input{020_related}
+\input{030_solution.tex}
+\input{040_experiment.tex}
+\input{050_conclusion.tex}
+
+
+\setmonofont{CMU Typewriter Text}
+\bibliographystyle{ugost2008ls}
+\bibliography{vkr}
+
+\end{document}
